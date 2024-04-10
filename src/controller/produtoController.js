@@ -52,5 +52,4 @@ server.put('produto/imagem/:id', upload.single('imagem'), async (req, resp) => {
         resp.status(202).send();
 })
 
-
 export default server;

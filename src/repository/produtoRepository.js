@@ -2,7 +2,7 @@ import con from "./connection.js";
 
 export async function salvarProduto(roupa) {
     let comando = `
-        insert into tb_roupa (nom_roupa, desc_roupa, preco_roupa, tipo_roupa, cor_roupa, tam_roupa, material_roupa)
+        insert into tb_roupa (nome_roupa, desc_roupa, preco_roupa, tipo_roupa, cor_roupa, tam_roupa, material_roupa)
         values(?,?,?,?,?,?,?)
     `
 
@@ -10,7 +10,7 @@ export async function salvarProduto(roupa) {
     let info = resp[0];
 
     roupa.id = info.insertId;
-    return produto;
+    return roupa;
 }
 
 export async function listarProdutos() {
@@ -26,7 +26,6 @@ export async function listarProdutos() {
 }
 
 // listar por preco menor
-
 export async function removerProduto(id) {
     let comando = `
         delete from tb_roupa where id_roupa = ?
